@@ -1,0 +1,10 @@
+{
+  "predicted_class": "Melanocytic Nevus",
+  "confidence": 0.82,
+  "top_3": [
+    {"class": "Melanocytic Nevus", "confidence": 0.82},
+    {"class": "Melanoma", "confidence": 0.11},
+    {"class": "Benign Keratosis", "confidence": 0.05}
+  ],
+  "image_id": "sample_image_001.jpg"
+}

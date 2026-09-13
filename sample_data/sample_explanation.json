@@ -1,0 +1,19 @@
+{
+  "predicted_class": "Melanocytic Nevus",
+  "confidence_label": "Moderate confidence",
+  "summary": "A melanocytic nevus is a very common, usually harmless mole-like growth on the skin made up of pigment-producing cells. Most people have several of these and they are typically benign.",
+  "general_characteristics": [
+    "Usually round or oval with a well-defined border",
+    "Consistent brown, tan, or skin-colored shade throughout",
+    "Generally stays the same size and shape over long periods",
+    "Can appear anywhere on the body, often starting in childhood or young adulthood"
+  ],
+  "when_to_see_a_doctor": [
+    "The mole changes in size, shape, or color",
+    "It develops irregular or blurry borders",
+    "It becomes itchy, painful, or starts bleeding",
+    "It looks noticeably different from your other moles",
+    "You are simply unsure or concerned about a spot on your skin"
+  ],
+  "disclaimer": "This is an educational screening tool, not a medical diagnosis. Please consult a dermatologist or other qualified healthcare professional for an accurate evaluation of any skin concern."
+}
