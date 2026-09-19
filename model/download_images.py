@@ -4,6 +4,7 @@ import csv
 import threading
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import cv2
 from google.cloud import storage
 
 def download_single_image(rec, output_base_dir, bucket):
@@ -14,9 +15,16 @@ def download_single_image(rec, output_base_dir, bucket):
     target_dir = output_base_dir / label
     target_path = target_dir / f"{case_id}.jpg"
 
-    # Skip if already exists and is non-empty
+    # Skip if already exists, is non-empty, and valid image
     if target_path.exists() and target_path.stat().st_size > 0:
-        return 'skipped', case_id, image_path, None
+        test_img = cv2.imread(str(target_path))
+        if test_img is not None:
+            return 'skipped', case_id, image_path, None
+        else:
+            try:
+                target_path.unlink()
+            except Exception:
+                pass
 
     try:
         target_dir.mkdir(parents=True, exist_ok=True)
