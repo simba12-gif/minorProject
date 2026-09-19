@@ -43,7 +43,9 @@ def build_model(input_shape=(224, 224, 3), num_classes=NUM_CLASSES):
     base_model.trainable = False
 
     inputs = tf.keras.Input(shape=input_shape)
-    x = base_model(inputs, training=False)
+    # Rescale [0, 1] normalized inputs to [0, 255] so EfficientNetB0's internal 1/255 rescaling works as expected
+    x = tf.keras.layers.Rescaling(255.0)(inputs)
+    x = base_model(x, training=False)
     x = tf.keras.layers.GlobalAveragePooling2D()(x)
     x = tf.keras.layers.Dropout(0.3)(x)
     outputs = tf.keras.layers.Dense(num_classes, activation='softmax')(x)
